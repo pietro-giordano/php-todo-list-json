@@ -18,7 +18,7 @@
                   <h1 class="text-white">Todo list</h1>
 
                   <ul class="list-group">
-                        <li v-for="todo in todoList" class="list-group-item">
+                        <li v-for="todo in todoList" class="list-group-item" :class="todo.completed ? 'text-decoration-line-through' : '' ">
                               {{ todo.to_do }}
                         </li>
                   </ul>
