@@ -7,3 +7,8 @@
 .box {
       width: 30%;
 }
+
+li {
+      cursor: pointer;
+      line-height: 2.5rem;
+}
