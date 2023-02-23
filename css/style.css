@@ -1,5 +1,8 @@
-#app {
+body {
       background-color: #001632;
+}
+
+#app {
       width: 100%;
 }
 
