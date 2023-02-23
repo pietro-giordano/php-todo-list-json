@@ -1,23 +1,21 @@
 <?php
 
-$todoListString = file_get_contents('database.json');
-$todoList = json_decode($todoListString, true);
+$todoListString = file_get_contents('database.json');      //prendo contenuto database
+$todoList = json_decode($todoListString, true);              //decodifico
 
-$todoList[] = [
-      'to_do' => $_POST['newTask']['to_do'],
-      'completed' => $_POST['newTask']['completed'],
+$todoList[] = [                                                                   //aggiungo nuovo oggetto 
+      'to_do' => $_POST['newTask'],
+      'completed' => false,
 ];
 
-$newTodoList = json_encode($todoList);
+file_put_contents('database.json', json_encode($todoList));          //e rimando in database con aggiunta tutto encodato
 
-file_put_contents('database.json', $newTodoList);
-
-$response = [
+$response = [                                                                  //costruisco risposta per il client
       'success' => true,
       'message' => 'Ok',
       'code' => 200,
-      'todoList' => $newTodoList
+      'todoList' => $todoList
 ];
 
-header('Content-Type: application/json');
-echo json_encode($response);
+header('Content-Type: application/json');                      //glie lo faccio capire che è json
+echo json_encode($response);                                     //stampo risposta encodata

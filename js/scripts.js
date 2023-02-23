@@ -6,10 +6,7 @@ createApp({
                   readUrl: './read.php',
                   createUrl: './create.php',
                   todoList: [],
-                  newTodo: {
-                        to_do: '',
-                        completed: false
-                  }
+                  newTodo: ''
             };
       },
       methods: {
@@ -25,8 +22,12 @@ createApp({
                               }
                         })
                         .then((response) => {
+                              console.log(response)
                               this.todoList = response.data.todoList
+                              console.log(this.todoList)
                         });
+
+                  this.newTodo = '';
             }
       },
       created() {

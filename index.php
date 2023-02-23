@@ -28,7 +28,7 @@
                   </ul>
 
                   <div class="input-group mt-3">
-                        <input v-model="newTodo.to_do" type="text" name="newTask" class="form-control" placeholder="Inserisci elemento...">
+                        <input v-model="newTodo" type="text" name="newTask" class="form-control" placeholder="Inserisci elemento...">
                         <button class="btn btn-outline-warning" type="submit" id="add-button">Inserisci</button>
                   </div>
             </form>
