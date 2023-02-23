@@ -3,8 +3,6 @@ const { createApp } = Vue;
 createApp({
       data() {
             return {
-                  readUrl: './read.php',
-                  createUrl: './create.php',
                   todoList: [],
                   newTodo: ''
             };
@@ -14,7 +12,7 @@ createApp({
             addTodo() {
 
                   axios
-                        .post(this.createUrl, {
+                        .post('./create.php', {
                               newTask: this.newTodo
                         }, {
                               headers: {
@@ -28,12 +26,38 @@ createApp({
                         });
 
                   this.newTodo = '';
+            },
+
+            updateTodo(index) {
+
+                  if (this.todoList[index].completed == true) {
+                        this.todoList[index].completed = false
+                  } else {
+                        this.todoList[index].completed = true
+                  }
+            },
+
+            deleteTodo(index) {
+
+                  this.todoList.splice(index, 1);
+
+                  axios
+                        .post('./delete.php', {
+                              newTodolist: this.todoList
+                        }, {
+                              headers: {
+                                    'Content-Type': 'multipart/form-data'
+                              }
+                        })
+                        .then((response) => {
+                              console.log(response)
+                        });
             }
       },
       created() {
 
             axios
-                  .get(this.readUrl)
+                  .get('./read.php')
                   .then((response) => {
                         console.log(response);
                         this.todoList = response.data;

@@ -1,1 +1,30 @@
-[{"to_do":"HTML","completed":true},{"to_do":"CSS","completed":true},{"to_do":"Responsive design","completed":true},{"to_do":"Javascript","completed":true},{"to_do":"PHP","completed":false},{"to_do":"Laravel","completed":false},{"to_do":"react","completed":false},{"to_do":"recas","completed":false}]
+[
+      {
+            "to_do": "HTML",
+            "completed": true
+      },
+      {
+            "to_do": "CSS",
+            "completed": true
+      },
+      {
+            "to_do": "Responsive design",
+            "completed": true
+      },
+      {
+            "to_do": "Javascript",
+            "completed": true
+      },
+      {
+            "to_do": "PHP",
+            "completed": false
+      },
+      {
+            "to_do": "Laravel",
+            "completed": false
+      },
+      {
+            "to_do": "react",
+            "completed": false
+      }
+]

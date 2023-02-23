@@ -19,9 +19,9 @@
                   <h1 class="display-1 text-secondary-emphasis text-center text-uppercase">Todo list</h1>
 
                   <ul class="list-group">
-                        <li v-for="todo in todoList" class="list-group-item list-group-item-action d-flex justify-content-between" :class="todo.completed ? 'text-decoration-line-through' : '' ">
-                              {{ todo.to_do }}
-                              <button class="btn btn-danger" type="button" id="delete-button">
+                        <li v-for="(todo, index) in todoList" class="list-group-item list-group-item-action d-flex justify-content-between">
+                              <span @click="updateTodo(index)" :class="todo.completed ? 'text-decoration-line-through' : '' ">{{ todo.to_do }}</span>
+                              <button class="btn btn-danger" type="button" id="delete-button" @click="deleteTodo(index)">
                                     <i class="bi bi-trash-fill"></i>
                               </button>
                         </li>
