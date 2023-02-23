@@ -15,7 +15,7 @@
 
       <div id="app" class="d-flex justify-content-center">
 
-            <div class="box mt-3">
+            <form action="" method="POST" class="box mt-3" @submit.prevent="addTodo()">
                   <h1 class="display-1 text-secondary-emphasis text-center text-uppercase">Todo list</h1>
 
                   <ul class="list-group">
@@ -28,10 +28,10 @@
                   </ul>
 
                   <div class="input-group mt-3">
-                        <input type="text" class="form-control" placeholder="Inserisci elemento...">
-                        <button class="btn btn-outline-warning" type="button" id="add-button">Inserisci</button>
+                        <input v-model="newTodo.to_do" type="text" name="newTask" class="form-control" placeholder="Inserisci elemento...">
+                        <button class="btn btn-outline-warning" type="submit" id="add-button">Inserisci</button>
                   </div>
-            </div>
+            </form>
 
       </div>
 
