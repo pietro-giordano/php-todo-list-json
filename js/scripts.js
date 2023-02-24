@@ -30,20 +30,9 @@ createApp({
 
             updateTodo(index) {
 
-                  if (this.todoList[index].completed == true) {
-                        this.todoList[index].completed = false
-                  } else {
-                        this.todoList[index].completed = true
-                  }
-            },
-
-            deleteTodo(index) {
-
-                  this.todoList.splice(index, 1);
-
                   axios
-                        .post('./delete.php', {
-                              newTodolist: this.todoList
+                        .post('./update.php', {
+                              index: index
                         }, {
                               headers: {
                                     'Content-Type': 'multipart/form-data'
@@ -51,6 +40,23 @@ createApp({
                         })
                         .then((response) => {
                               console.log(response)
+                              this.todoList = response.data.todoList
+                        });
+            },
+
+            deleteTodo(index) {
+
+                  axios
+                        .post('./delete.php', {
+                              index: index
+                        }, {
+                              headers: {
+                                    'Content-Type': 'multipart/form-data'
+                              }
+                        })
+                        .then((response) => {
+                              console.log(response)
+                              this.todoList = response.data.todoList
                         });
             }
       },

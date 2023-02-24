@@ -5,7 +5,10 @@ $todoList = json_decode($todoListString, true);              //decodifico
 
 $index = intval($_POST['index']);          //mi porto il valore dell'index dell'elemento da modificare
 
-unset($todoList[$index]);              //cancello l'elemento da cancellare trovando la posizione grazie all'index
+$todoList[$index] = [                                    //con quell'index pesco l'elemento e ricostruisco l'oggetto
+      'to_do' => $todoList[$index]['to_do'],             //to_do avrà stesso valore di prima
+      'completed' => $todoList[$index]['completed'] == true ? false : true,           //completed invertirà il suo valore
+];
 
 file_put_contents('database.json', json_encode($todoList));           //ripusho in database l'array completo e modificato encodato
 
